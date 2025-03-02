@@ -1,12 +1,26 @@
 import streamlit as st
 
-# Esta debe ser la primera línea de Streamlit
+# Esta debe ser la primera línea de Streamlit después de importar streamlit
 st.set_page_config(
     page_title="Crypto Trading App",
     page_icon="📈",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
+
+from urllib.request import urlopen
+import ccxt # type: ignore
+import pandas as pd # type: ignore
+import numpy as np
+from datetime import datetime, timedelta
+import time
+from typing import Dict, List, Self
+try:
+    import plotly.graph_objects as go # type: ignore
+except ImportError:
+    print("Error: Plotly is required. Please install it using: pip install plotly")
+    raise SystemExit(1)
+from decimal import Decimal
 
 # Añade CSS para móvil
 st.markdown("""
@@ -22,19 +36,6 @@ st.markdown("""
     }
     </style>
     """, unsafe_allow_html=True)
-
-import ccxt # type: ignore
-import pandas as pd # type: ignore
-import numpy as np
-from datetime import datetime, timedelta
-import time
-from typing import Dict, List, Self
-try:
-    import plotly.graph_objects as go # type: ignore
-except ImportError:
-    print("Error: Plotly is required. Please install it using: pip install plotly")
-    raise SystemExit(1)
-from decimal import Decimal
 
 class CryptoTeamTrading:
     def __init__(self):
@@ -404,8 +405,6 @@ class CryptoTeamTradingUI:
     def run_app(self):
         """Main method to run the Streamlit application"""
         try:
-            st.set_page_config(layout="wide", page_title="Crypto Trading Dashboard")
-            
             st.title("🚀 Crypto Trading Dashboard")
             
             # Initialize main components

@@ -80,3 +80,24 @@ select = [
 
 [tool.ruff.lint.pydocstyle]
 convention = "pep257"
+
+[tool.poetry]
+name = "cryptotrading-app"
+version = "0.1.0"
+description = "A Crypto Trading Application"
+authors = ["Your Name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+streamlit = "^1.31.0"
+ccxt = "^4.1.87"
+pandas = "^2.1.4"
+numpy = "^1.26.3"
+plotly = "^5.18.0"
+cryptography = "^41.0.7"
+python-dateutil = "^2.8.2"
+pytz = "^2023.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

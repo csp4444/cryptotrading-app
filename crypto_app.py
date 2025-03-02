@@ -1,19 +1,6 @@
-from urllib.request import urlopen
-import ccxt # type: ignore
-import pandas as pd # type: ignore
-import numpy as np
-from datetime import datetime, timedelta
-import time
-import streamlit as st # type: ignore
-from typing import Dict, List, Self
-try:
-    import plotly.graph_objects as go # type: ignore
-except ImportError:
-    print("Error: Plotly is required. Please install it using: pip install plotly")
-    raise SystemExit(1)
-from decimal import Decimal
+import streamlit as st
 
-# Añade al inicio del archivo, justo después de las importaciones
+# Esta debe ser la primera línea de Streamlit
 st.set_page_config(
     page_title="Crypto Trading App",
     page_icon="📈",
@@ -35,6 +22,19 @@ st.markdown("""
     }
     </style>
     """, unsafe_allow_html=True)
+
+import ccxt # type: ignore
+import pandas as pd # type: ignore
+import numpy as np
+from datetime import datetime, timedelta
+import time
+from typing import Dict, List, Self
+try:
+    import plotly.graph_objects as go # type: ignore
+except ImportError:
+    print("Error: Plotly is required. Please install it using: pip install plotly")
+    raise SystemExit(1)
+from decimal import Decimal
 
 class CryptoTeamTrading:
     def __init__(self):

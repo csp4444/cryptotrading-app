@@ -975,6 +975,9 @@ init_commission_db()
 def show_dashboard():
     # Sidebar para navegación
     with st.sidebar:
+        # Asegúrate que el nombre del archivo coincida con tu logo
+        st.image("assets/cryptoteam_logo.png", width=120)
+        
         st.session_state.selected = st.radio(
             "Navegación",
             ["📊 Dashboard", "💰 Trading", "📤 Retiros", "📥 Depósitos", "⚙️ Configuración"]
